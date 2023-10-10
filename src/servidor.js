@@ -4,6 +4,8 @@ import path from "path";
 import http from "http";
 import { Server } from "socket.io";
 
+import "./dbConnect.js";
+
 const app = express();
 const porta = process.env.porta || 3000;
 
@@ -19,6 +21,4 @@ servidorHttp.listen(porta, () =>
 
 const io = new Server(servidorHttp);
 
-io.on("connection", () => {
-  console.log("Um cliente se conectou!");
-});
+export default io;
